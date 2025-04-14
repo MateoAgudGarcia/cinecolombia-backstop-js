@@ -10,8 +10,11 @@ module.exports = async (page, scenario) => {
   }
 
   // MUNGE COOKIE DOMAIN
-  cookies = cookies.map(cookie => {
-    if (cookie.domain.startsWith('http://') || cookie.domain.startsWith('https://')) {
+  cookies = cookies.map((cookie) => {
+    if (
+      cookie.domain.startsWith('http://') ||
+      cookie.domain.startsWith('https://')
+    ) {
       cookie.url = cookie.domain;
     } else {
       cookie.url = 'https://' + cookie.domain;
@@ -25,7 +28,7 @@ module.exports = async (page, scenario) => {
     return Promise.all(
       cookies.map(async (cookie) => {
         await page.setCookie(cookie);
-      })
+      }),
     );
   };
   await setCookies();
