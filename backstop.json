@@ -1,5 +1,5 @@
 {
-  "id": "Bad Bunny - Tour Packages",
+  "id": "Cine Colombia",
   "viewports": [
     {
       "label": "desktop",
@@ -9,20 +9,60 @@
   ],
   "onBeforeScript": "puppet/onBefore.js",
   "onReadyScript": "puppet/onReady.js",
+  "fileNameTemplate": "{scenarioLabel}_{selectorLabel}_{viewportLabel}",
   "scenarios": [
     {
-      "label": "Tour Homepage - EN",
-      "url": "https://badbunnypackages.vibee.com/",
+      "label": "Armenia - Cartelera",
+      "url": "https://www.cinecolombia.com/armenia",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "[data-ez-zone-id]:last-of-type div.landing-page__block:nth-of-type(3) figure > img",
+      "delay": 0,
+      "hideSelectors": ["div.promo-modal", "div.cookie-modal > div"],
+      "removeSelectors": [
+        "div.promo-modal .v-modal-card-body",
+        "div.cookie-modal"
+      ],
+      "selectors": ["viewport"],
+      "postInteractionWait": 0,
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Contactanos PQRS",
+      "url": "https://www.cinecolombia.com/contactanos-pqrs",
+      "referenceUrl": "",
+      "readyEvent": "",
+      "readySelector": "",
+      "delay": 0,
+      "hideSelectors": ["div.v-modal > .v-modal-backdrop"],
+      "removeSelectors": [
+        ".v-modal .v-modal-card--rounded",
+        "div.cookie-modal"
+      ],
+      "selectors": [],
+      "postInteractionWait": 0,
+      "selectorExpansion": true,
+      "expect": 0,
+      "misMatchThreshold": 0,
+      "requireSameDimensions": true
+    },
+    {
+      "label": "Medellin - Alternativo",
+      "url": "https://www.cinecolombia.com/medellin/alternativo",
       "referenceUrl": "",
       "readyEvent": "",
       "readySelector": "",
       "delay": 0,
       "hideSelectors": [],
-      "removeSelectors": [],
+      "removeSelectors": ["div.cookie-modal"],
+      "selectors": ["div.landing-page__block:first-of-type"],
       "postInteractionWait": 0,
       "selectorExpansion": true,
       "expect": 0,
-      "misMatchThreshold": 0.1,
+      "misMatchThreshold": 0,
       "requireSameDimensions": true
     }
   ],

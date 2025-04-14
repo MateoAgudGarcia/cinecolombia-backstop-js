@@ -1,18 +1,25 @@
 {
-  "name": "vrt-backstopjs",
-  "version": "1.0.0",
-  "description": "",
-  "license": "ISC",
-  "author": "",
-  "type": "modu",
-  "main": "index.js",
+  "name": "cinecolombia-backstop-js",
+  "author": "Mateo Agudelo García",
+  "type": "commonjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepare": "husky",
+    "reference": "backstop reference",
+    "test": "backstop test"
   },
   "devDependencies": {
-    "backstopjs": "^6.3.25"
-  },
-  "dependencies": {
+    "@eslint/js": "^9.24.0",
+    "backstopjs": "^6.3.25",
+    "eslint": "^9.24.0",
+    "globals": "^16.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.1",
     "prettier": "^3.5.3"
+  },
+  "lint-staged": {
+    "*.{js,json}": [
+      "eslint .",
+      "prettier --check ."
+    ]
   }
 }
