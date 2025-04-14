@@ -1,4 +1,4 @@
-# Visual Regression Testing PoC - Cinecolombia
+# Visual Regression Testing PoC - Cinecolombia[![BackstopJS Tests and Deployment](https://github.com/MateoAgudGarcia/cinecolombia-backstop-js/actions/workflows/backstop-deployment.yml/badge.svg)](https://github.com/MateoAgudGarcia/cinecolombia-backstop-js/actions/workflows/backstop-deployment.yml)
 
 This Proof of Concept (PoC) demonstrates the use of **BackstopJS** for visual regression testing on the Cinecolombia platform.
 

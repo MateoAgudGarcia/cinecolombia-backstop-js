@@ -1,0 +1,45 @@
+name: BackstopJS Tests and Deployment
+on:
+  push:
+    branches: master
+  workflow_dispatch:
+
+jobs:
+  backstopjs-run:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Linter and Prettier
+        run: |
+          npx eslint --quiet
+          npx prettier --check .
+
+      - name: Run BackstopJS tests
+        run: npm test
+
+      - name: Upload BackstopJS report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: backstopjs-report
+          path: backstop_data/
+          retention-days: 30
+
+      - name: Deploy BackstopJS report to GitHub Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: backstop_data/
