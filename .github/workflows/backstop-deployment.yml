@@ -28,12 +28,18 @@ jobs:
       - name: Run BackstopJS tests
         run: npm test
 
+      - name: Prepare BackstopJS report
+        run: |
+          cp -r backstop_data/bitmaps_reference html_report/
+          cp -r backstop_data/bitmaps_test html_report/
+          cp -r backstop_data/html_report html_report/
+
       - name: Upload BackstopJS report
         uses: actions/upload-artifact@v4
         if: always()
         with:
           name: backstopjs-report
-          path: backstop_data/
+          path: html_report/
           retention-days: 30
 
       - name: Deploy BackstopJS report to GitHub Pages
@@ -42,4 +48,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: backstop_data/
+          publish_dir: html_report/
