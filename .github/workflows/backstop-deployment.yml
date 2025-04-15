@@ -29,10 +29,12 @@ jobs:
         run: npm test
 
       - name: Prepare BackstopJS report
+        if: always()
         run: |
+          mkdir -p html_report
           cp -r backstop_data/bitmaps_reference html_report/
           cp -r backstop_data/bitmaps_test html_report/
-          cp -r backstop_data/html_report html_report/
+          cp -r backstop_data/html_report/ html_report/
 
       - name: Upload BackstopJS report
         uses: actions/upload-artifact@v4
