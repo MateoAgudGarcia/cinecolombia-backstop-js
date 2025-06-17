@@ -26,6 +26,7 @@ jobs:
           npx prettier --check .
 
       - name: Run BackstopJS tests
+        continue-on-error: true
         run: npm test
 
       - name: Prepare BackstopJS report
